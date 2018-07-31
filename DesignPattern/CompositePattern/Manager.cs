@@ -5,17 +5,7 @@ namespace CompositePattern
 {
     internal class Manager : Employee
     {
-        public override void Print(string abstand)
-        {
-            Console.WriteLine(abstand + "Abteilungsleiter " + this.Name + " (" + this.Department + "). Tel: " + this.TelephoneNumber);
-            foreach (Employee employee in this.Employees)
-            {
-                employee.Print(abstand + "      ");//Einrückung
-            }
-        }
-
         public List<Employee> Employees;
-        public string Department { get; set; }
 
         public Manager(string name, string number, string department) : base(name, number)
         {
@@ -23,13 +13,19 @@ namespace CompositePattern
             this.Employees = new List<Employee>();
         }
 
+        public string Department { get; set; }
+
+        public override void Print(string space)
+        {
+            Console.WriteLine(space + "Abteilungsleiter " + this.Name + " (" + this.Department + "). Tel: " +
+                              this.TelephoneNumber);
+            foreach (Employee employee in this.Employees) employee.Print(space + "      ");
+        }
+
         public override int GetNumberOfEmployees()
         {
             int numberOf = 1;
-            foreach (Employee employe in this.Employees)
-            {
-                numberOf += employe.GetNumberOfEmployees();
-            }
+            foreach (Employee employe in this.Employees) numberOf += employe.GetNumberOfEmployees();
 
             return numberOf;
         }
@@ -41,7 +37,6 @@ namespace CompositePattern
 
         public void RemoveEmployee(Employee employee)
         {
-
             this.Employees.Remove(employee);
         }
 
@@ -49,7 +44,5 @@ namespace CompositePattern
         {
             return this.Employees[index];
         }
-
-
     }
 }

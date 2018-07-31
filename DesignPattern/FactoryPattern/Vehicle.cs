@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FactoryPattern
+﻿namespace FactoryPattern
 {
     public class Vehicle
     {
-        double MaxSpeed { get; set; }
-
-        int NumberOfTires { get; set; }
-
         public Vehicle(double maxSpeed, int numberOfTires)
         {
-            MaxSpeed = maxSpeed;
-            NumberOfTires = numberOfTires;
+            this.MaxSpeed = maxSpeed;
+            this.NumberOfTires = numberOfTires;
         }
 
-       
+        private double MaxSpeed { get; }
+
+        private int NumberOfTires { get; }
     }
 
     public class Car : Vehicle
@@ -30,7 +22,6 @@ namespace FactoryPattern
 
     public class Bike : Vehicle
     {
-
         public Bike(double maxSpeed, int numberOfTires) : base(maxSpeed, numberOfTires)
         {
         }

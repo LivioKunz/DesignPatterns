@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace CommandPattern
@@ -13,23 +8,23 @@ namespace CommandPattern
         [Fact]
         public void Test_Command_Pattern()
         {
-			var libarayManager = new Libraray();
-		    Book book1 = new Book("bla bla");
+            Libraray libarayManager = new Libraray();
+            Book book1 = new Book("bla bla");
 
-			var borrowBook = new Borrow(book1);
+            Borrow borrowBook = new Borrow(book1);
 
-			libarayManager.HandleBook(borrowBook);
+            libarayManager.HandleBook(borrowBook);
             borrowBook.IsProcessed.Should().BeFalse();
 
-			libarayManager.ProcessAll();
+            libarayManager.ProcessAll();
             borrowBook.IsProcessed.Should().BeTrue();
 
-			var returnBook = new Return(book1);
+            Return returnBook = new Return(book1);
             libarayManager.HandleBook(returnBook);
 
             returnBook.IsProcessed.Should().BeFalse();
 
-			libarayManager.ProcessAll();
+            libarayManager.ProcessAll();
             returnBook.IsProcessed.Should().BeTrue();
         }
     }

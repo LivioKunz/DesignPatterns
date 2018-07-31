@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ObserverPattern
 {
@@ -26,22 +23,13 @@ namespace ObserverPattern
 
         public void Notify()
         {
-            foreach (var observer in this.observers)
-            {
-                observer.Update();
-            }
+            foreach (Observer observer in this.observers) observer.Update();
         }
     }
 
     public class ConcreteSubject : Subject
     {
-        private string subjectState;
-
-        public string SubjectState
-        {
-            get { return this.subjectState; }
-            set { this.subjectState = value; }
-        }
+        public string SubjectState { get; set; }
     }
 
     public abstract class Observer
@@ -51,28 +39,22 @@ namespace ObserverPattern
 
     public class ConcreteObserver : Observer
     {
-        private string name;
+        private readonly string name;
         private string observerState;
-        private ConcreteSubject subject;
 
         public ConcreteObserver(ConcreteSubject subject, string name)
         {
             this.name = name;
-            this.subject = subject;
+            this.Subject = subject;
         }
+
+        public ConcreteSubject Subject { get; set; }
 
 
         public override void Update()
         {
-            this.observerState = this.subject.SubjectState;
+            this.observerState = this.Subject.SubjectState;
             Console.WriteLine($"Observer {this.name}'s new state is {this.observerState}");
         }
-
-        public ConcreteSubject Subject
-        {
-            get { return this.subject; }
-            set { this.subject = value; }
-        }
-
     }
 }

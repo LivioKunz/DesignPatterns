@@ -41,9 +41,9 @@ namespace CompositePattern
             return 1;
         }
 
-        public override void Print(string s)
+        public override void Print(string space)
         {
-            Console.WriteLine(s + this.Name + "Tel: " + TelephoneNumber);
+            Console.WriteLine(space + this.Name + "Tel: " + TelephoneNumber);
         }
     }
 
@@ -62,6 +62,6 @@ namespace CompositePattern
         public abstract int GetNumberOfEmployees();
 
 
-        public abstract void Print(string s);
+        public abstract void Print(string space);
     }
 }

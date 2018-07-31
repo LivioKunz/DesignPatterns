@@ -1,45 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FacadePattern
 {
+    public class MainApp
+    {
+        public static void Main(string[] args)
+        {
+            Facade facade = new Facade();
+            facade.WriteStuff("Bla Bla Bla");
+
+            Console.ReadLine();
+        }
+    }
+
     public class Facade
     {
-        //Vereinfacht zugriff auf andere 2 Methoden da nur eine Aufgerufen werden muss -> Bäm Facade
-        public void WriteStuff()
+        public void WriteStuff(string stuff)
         {
-            var complicatedProgramOne = new ComplicatedProgramOne();
-            complicatedProgramOne.WriteSomeStuff();
+            ComplicatedProgramOne complicatedProgramOne = new ComplicatedProgramOne();
+            complicatedProgramOne.WriteSomeStuff(stuff);
 
             ComplicatedProgramTwo complicatedProgramTwo = new ComplicatedProgramTwo();
-            complicatedProgramTwo.WriteSomeOtherStuff();
-        }
-
-
-        
-    }
-
-
-
-    public class ComplicatedProgramOne
-    {
-        public void WriteSomeStuff()
-        {
-            Console.WriteLine("Testi");
-        }
-
-        
-    }
-
-
-    public class ComplicatedProgramTwo
-    {
-        public void WriteSomeOtherStuff()
-        {
-            Console.WriteLine("Testi van Test");
+            complicatedProgramTwo.WriteSomeOtherStuff(stuff);
         }
     }
 }

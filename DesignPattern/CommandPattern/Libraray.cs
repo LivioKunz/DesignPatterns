@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommandPattern
 {
@@ -23,18 +20,13 @@ namespace CommandPattern
         public void ProcessAll()
         {
             foreach (IBorrowBook borrowBook in this.borrowList)
-            {
                 if (!borrowBook.IsProcessed)
-                {
                     borrowBook.Process();
-                }
-            }
         }
 
         public static void Main(string[] args)
         {
-            var customerBook1 = new Book("bla bla");
-            
+            Book customerBook1 = new Book("bla bla");
         }
     }
 
@@ -42,11 +34,10 @@ namespace CommandPattern
     {
         public Book(string name)
         {
-            Name = name;
+            this.Name = name;
         }
 
-        private string Name { get; set; }
-
+        private string Name { get; }
     }
 
     public interface IBorrowBook
@@ -59,20 +50,20 @@ namespace CommandPattern
     public class Borrow : IBorrowBook
     {
         private readonly Book book;
-        
+
 
         public Borrow(Book book)
         {
             this.book = book;
             this.BorrowedBooks = new List<Book>();
         }
-        
+
         public bool IsProcessed { get; set; }
         public List<Book> BorrowedBooks { get; set; }
 
         public void Process()
         {
-            BorrowedBooks.Add(this.book);
+            this.BorrowedBooks.Add(this.book);
             this.IsProcessed = true;
         }
     }

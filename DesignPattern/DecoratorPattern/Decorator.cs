@@ -21,7 +21,8 @@ namespace DecoratorPattern
     public class CoughDecorator : Decorator
     {
         public CoughDecorator(Character character) : base(character)
-        { }
+        {
+        }
 
         public override void Say()
         {
@@ -32,15 +33,14 @@ namespace DecoratorPattern
 
     public class SnifflesDecorator : Decorator
     {
+        public SnifflesDecorator(Character character) : base(character)
+        {
+        }
 
         public override void Say()
         {
             Console.WriteLine("Sniff, Sniff...");
             base.Say();
-        }
-
-        public SnifflesDecorator(Character character) : base(character)
-        {
         }
     }
 }
