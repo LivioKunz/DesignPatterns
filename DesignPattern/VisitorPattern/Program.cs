@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VisitorPattern
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var employees = new Employees();
-            employees.Attach(new Clerk("Hank",25000,14));
+            Employees employees = new Employees();
+            employees.Attach(new Clerk("Hank", 25000, 14));
             employees.Attach(new Director("Elly", 35000.0, 16));
             employees.Attach(new President("Trump", 10000000.0, 200));
 
@@ -37,7 +34,8 @@ namespace VisitorPattern
             Employee employee = element as Employee;
             // Provide 3 extra vacation days
             employee.VacationDays += 3;
-            Console.WriteLine("{0} {1}'s new vacation days: {2}", employee.GetType().Name, employee.Name, employee.VacationDays);
+            Console.WriteLine("{0} {1}'s new vacation days: {2}", employee.GetType().Name, employee.Name,
+                employee.VacationDays);
         }
     }
 
@@ -57,14 +55,15 @@ namespace VisitorPattern
     {
         public Employee(string name, double income, int vacationDays)
         {
-            Name = name;
-            Income = income;
-            VacationDays = vacationDays;
+            this.Name = name;
+            this.Income = income;
+            this.VacationDays = vacationDays;
         }
 
         public double Income { get; set; }
         public string Name { get; set; }
         public int VacationDays { get; set; }
+
         public override void Accept(IVisitor visitor)
         {
             visitor.Visist(this);
@@ -72,24 +71,18 @@ namespace VisitorPattern
     }
 
 
-  
-
     internal class Employees
     {
-        private List<Employee> EmployeesList = new List<Employee>(); 
+        private readonly List<Employee> EmployeesList = new List<Employee>();
 
         public void Attach(Employee employee)
         {
             this.EmployeesList.Add(employee);
-
         }
 
         public void Accept(IVisitor visitor)
         {
-            foreach (Employee employee in this.EmployeesList)
-            {
-                employee.Accept(visitor);
-            } 
+            foreach (Employee employee in this.EmployeesList) employee.Accept(visitor);
         }
     }
 

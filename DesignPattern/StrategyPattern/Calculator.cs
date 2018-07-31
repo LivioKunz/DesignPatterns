@@ -28,14 +28,11 @@ namespace StrategyPattern
     {
         public double AverageFor(List<double> values)
         {
-            var sortedValues = values.OrderBy(x => x).ToList();
+            List<double> sortedValues = values.OrderBy(x => x).ToList();
 
-            if (sortedValues.Count % 2 == 1)
-            {
-                return sortedValues[(sortedValues.Count - 1) / 2];
-            }
+            if (sortedValues.Count % 2 == 1) return sortedValues[(sortedValues.Count - 1) / 2];
 
-            return (sortedValues[(sortedValues.Count / 2) - 1] + sortedValues[sortedValues.Count / 2]) / 2;
+            return (sortedValues[sortedValues.Count / 2 - 1] + sortedValues[sortedValues.Count / 2]) / 2;
         }
     }
 }
