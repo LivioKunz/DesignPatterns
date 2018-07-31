@@ -63,7 +63,16 @@ Objects can get notified if the state in another object is changed within the sy
 Used when you need to be sure that only one instance of an object exists.
 
 ## State Pattern
+![State Pattern](Images/State.PNG)
+
+Kina close to strategy pattern but enables to change behavior depending on which state the program currently is. If you have a vending machine and want to buy something then you can have states like choosing, paid, dispense. After you chose an item the state changes to "Chosen" after you paid changes to "Paid" etc.
 
 ## Strategy Pattern
+![Strategy Pattern](Images/Strategy.PNG)
+
+Instead of making alot of if else or switch statments you can use a strategy pattern to carry out specific behavior.
 
 ## Visitor Pattern
+![Singleton Pattern](Images/Singleton.PNG)
+
+Allows for one or more operations to be applied to a set of objects at runtime, decoupling the operations from the object structure.
