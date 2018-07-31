@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AbstractFactoryPattern
 {
@@ -10,12 +6,12 @@ namespace AbstractFactoryPattern
     {
         public static void Main(string[] args)
         {
-            var animalWorldEurope = new AnimalWorld(new EuropeFactory());
+            AnimalWorld animalWorldEurope = new AnimalWorld(new EuropeFactory());
             animalWorldEurope.RunFoodChain();
 
             Console.ReadLine();
 
-            var animalWorldAfrica = new AnimalWorld(new AfricaFactory());
+            AnimalWorld animalWorldAfrica = new AnimalWorld(new AfricaFactory());
             animalWorldAfrica.RunFoodChain();
 
             Console.ReadLine();
@@ -24,8 +20,8 @@ namespace AbstractFactoryPattern
 
     public class AnimalWorld
     {
-        private Herbivore herbivore;
-        private Carnivore carnivore;
+        private readonly Carnivore carnivore;
+        private readonly Herbivore herbivore;
 
         public AnimalWorld(ContinentFactory factory)
         {

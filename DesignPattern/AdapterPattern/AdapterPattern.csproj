@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9A486569-6CCB-4C79-820E-A70D90CE05E4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AdapterPattern</RootNamespace>
     <AssemblyName>AdapterPattern</AssemblyName>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentAssertions, Version=5.4.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
@@ -62,7 +65,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdapterA.cs" />
+    <Compile Include="AdapterB.cs" />
     <Compile Include="AdapterTests.cs" />
+    <Compile Include="IAdapter.cs" />
+    <Compile Include="OtherProduct.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="ProductUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

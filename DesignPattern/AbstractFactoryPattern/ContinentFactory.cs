@@ -4,7 +4,6 @@
     {
         public abstract Herbivore CreateHerbivore();
         public abstract Carnivore CreateCarnivore();
-
     }
 
     public class EuropeFactory : ContinentFactory

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace BuilderPattern
@@ -9,7 +8,7 @@ namespace BuilderPattern
         [Fact]
         public void Test_BuildReports()
         {
-            var now = DateTime.Now;
+            DateTime now = DateTime.Now;
 
 
             Report currentMonthTaxReport =
@@ -22,7 +21,6 @@ namespace BuilderPattern
                 new Report(new DateTime(now.Year, 1, 1),
                     new DateTime(now.Year, 12, 31),
                     false, true, Report.SortingMethod.ByTaxCategory);
-
 
 
             Report currentMonthCommissionReport =
@@ -39,7 +37,7 @@ namespace BuilderPattern
         [Fact]
         public void Test_BuildReports_WithBuilderPattern()
         {
-            var reportBuilder = new ReportBuilder();
+            ReportBuilder reportBuilder = new ReportBuilder();
 
             Report currentMonthTaxReport =
                 reportBuilder.CreateMonthTaxReport(4, 2017);

@@ -14,6 +14,7 @@ namespace AbstractFactoryPattern
             Console.WriteLine(this.GetType().Name + " eats " + herbivore.GetType().Name);
         }
     }
+
     public class Wulf : Carnivore
     {
         public override void Eat(Herbivore herbivore)
