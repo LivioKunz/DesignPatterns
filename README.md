@@ -3,7 +3,7 @@
 Includes a number of simple design pattern examples. This is just a cheat sheet for me and by no means a tutorial or similar how to implement certain patterns. I included a short description for each design pattern here.
 
 ## Creational Patterns
-[Abstract Factory](#Abstract Factory)
+[Abstract Factory](#Abstract-Factory)
 
 ## Structural Patterns
 
