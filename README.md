@@ -3,24 +3,24 @@
 Includes a number of simple design pattern examples. This is just a cheat sheet for me and by no means a tutorial or similar how to implement certain patterns. I included a short description for each design pattern here.
 
 ## Creational Patterns
-[Abstract Factory Patter](#abstract-factory)
-[Builder Patter](#builder-pattern)
-[Factory Method](#factory-method-pattern)
-[Singleton Patter](#singleton-pattern)
+[Abstract Factory Pattern](#abstract-factory),
+[Builder Pattern](#builder-pattern),
+[Factory Method](#factory-method-pattern),
+[Singleton Pattern](#singleton-pattern)
 
 ## Structural Patterns
-[Adapter Patter](#adapter-pattern)
-[Bridge Patter](#bridge-pattern)
-[Composite Patter](#composite-pattern)
-[Decorator Patter](#decorator-pattern)
-[Facade Patter](#facade-pattern)
+[Adapter Pattern](#adapter-pattern),
+[Bridge Pattern](#bridge-pattern),
+[Composite Pattern](#composite-pattern),
+[Decorator Pattern](#decorator-pattern),
+[Facade Pattern](#facade-pattern)
 
 ## Behaviroal Patterns
-[Command Patter](#command-pattern)
-[Observer Patter](#observer-pattern)
-[State Patter](#state-pattern)
-[Strategy Patter](#strategy-pattern)
-[Visitor Patter](#visitor-pattern)
+[Command Pattern](#command-pattern),
+[Observer Pattern](#observer-pattern),
+[State Pattern](#state-pattern),
+[Strategy Pattern](#strategy-pattern),
+[Visitor Pattern](#visitor-pattern)
 
 
 ---
